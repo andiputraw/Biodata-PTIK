@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Andi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body class="bg-black font-mono">
+ 
+    <header class="bg-gray-900 text-white py-4 w-screen">
+        <div class="container mx-auto flex justify-between items-center">
+          <a href="#" class="text-lg font-bold"></a>
+          <nav class="space-x-4">
+            <a href="#riwayat" class="text-white hover:text-gray-200">Riwayat</a>
+            <a href="#kemampuan" class="text-white hover:text-gray-200">Kemampuan</a>
+            <!-- <a href="#" class="text-white hover:text-gray-200">Services</a> -->
+            <!-- <a href="#" class="text-white hover:text-gray-200">Contact</a> -->
+          </nav>
+        </div>
+      </header>
+
+      
+    <div class="flex-row justify-center">
+        <div class="flex justify-center">
+            <div class="flex pt-32 gap-8">
+                <img src="foto.jpg" alt="Foto andi" class="w-64 h-64 rounded-md border-2 border-black shadow-sm -z-10" >
+                <div class="flex-row">
+                    <h1 class="text-white text-5xl font-bold font-sans" id="title">Andi Putra Wijaya</h1>    
+                    <p class="text-white my-4">Contact: 089656490464 / <a href="mailto:andiputraw925@gmail.com" class="text-blue-400 hover:text-blue-500">andiputraw925@gmail.com</a></p>
+                    <p class="text-white">Alamat: Kampung Babakan Cimekar Rt.03 Rw.15 kelurahan, Cibiru Hiir, <br/> Kec. Cileunyi, Kabupaten Bandung, Jawa Barat 40626</p>
+                    <div id="cursor"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center align-middle ">
+            <div class="flex-row">
+                <h1 class="text-white mt-12 text-5xl" id="about-me">About Me</h1>
+                <div class="max-w-2xl text-wrap ">
+                    <p class="text-white mt-2">Seorang mahasiswa polban yang sedang mengerjakan tugas Pengantar Teknologi Informasi Komunikasi</p>
+                </div>
+
+                <h1 class="text-white mt-12 text-5xl" id="riwayat">Riwayat pendidikan: </h1>
+                <ul class="text-white mt-4 list-disc">
+                    <li>TK nurkusuma: Bandung (2010-2012) </li>
+                    <li>SDN Panyileukan 262 (2012-2018) </li>
+                    <li>SMP Al-amanah Cileunyi (2018-2021)</li>
+                    <li>SMKN 13 Bandung (2021-2024)</li>
+                    <li>Politeknik Negeri Bandung (2024-sekarang)</li>
+                </ul>
+                
+                <h1 class="text-white mt-12 text-5xl" id="kemampuan" >Kemampuan dan Keterampilan: </h1>
+        
+                <ul class="text-white mt-4 list-disc">
+                    <li>Mampu menggunakan bahasa pemrograman: Javascript, PHP, Golang</li>
+                    <li>Mampu menggunakan database: MySQL, PostgreSQL, MongoDB, Redis</li>
+                    <li>Mampu menggunakan Docker, Docker Compose dan familiar dengan environtment linux</li>
+                </ul>    
+            </div>
+            
+        </div>
+
+        
+    </div>
+
+    <footer class="bg-gray-900 text-white mt-12 py-2 w-screen">
+        <div class="container mx-auto text-center">
+          <p class="text-sm"><p>Made with &hearts; by andiputraw.</p>
+          
+          <div class="mt-4">
+            <a href="https://web.facebook.com/profile.php?id=100031311411828" class="text-gray-400 hover:text-white mx-2">Facebook</a>
+            <a href="https://www.linkedin.com/in/andi-putra-wijaya-387267272/" class="text-gray-400 hover:text-white mx-2">LinkedIn</a>
+            <a href="https://x.com/andiputraw1" class="text-gray-400 hover:text-white mx-2">Twitter</a>
+        </div>
+        </div>
+    </footer>
+
+    <script>
+        const title = document.getElementById("title")
+        const content = title.textContent
+        
+        title.addEventListener('mouseenter', async () => {
+            
+            let change = Array.from({length: content.length}).map(_ => randomChar())
+            for(let i = 0; i < content.length; i++){                
+                for(let j = 0; j < 25; j++){
+                    for(let k = i; k < content.length; k++){
+                        change[k] = randomChar()
+                    }
+                    await wait(10)
+                    title.innerHTML = change.join('')
+                }
+                change[i] = content[i]
+                title.innerHTML = change.join('')
+            }
+
+        })
+
+        function randomChar() {
+            const map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz[];\'\",./?><:{}\\|`!@#$%^&*()-=_+'
+            return map[Math.round(Math.random() * map.length)]
+        }
+
+        function wait(ms) {
+            return new Promise(res => {
+                setTimeout(() => {
+                    res()
+                }, ms);
+            })
+        } 
+        
+        const cursor = document.getElementById('cursor')
+        const CURSOR_DIMENSION = 500
+        document.addEventListener('mousemove', (ev) => {
+            cursor.style.top = `${ev.clientY - (CURSOR_DIMENSION / 2)}px`
+            cursor.style.left = `${ev.clientX - (CURSOR_DIMENSION / 2)}px`
+        })
+
+    </script>
+    
+
+</body>
+</html>

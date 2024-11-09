@@ -1,0 +1,23 @@
+#cursor {
+  height: 500px;
+  width: 500px; /* Optional, to explicitly define size */
+  background: linear-gradient(to right, rgb(171, 26, 228), rgb(34, 31, 230));
+  aspect-ratio: 1;
+  position: fixed; /* Use fixed positioning to keep it outside the normal flow */
+  border-radius: 50%; /* Circle shape */
+  animation: rotate 20s infinite linear;
+  filter: blur(300px);
+  pointer-events: none;
+  z-index: 1000; /* Ensure it's on top but doesn’t affect other elements */
+}
+
+
+/* Rotate animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
